@@ -79,7 +79,7 @@ uint8_t Protocol::write(Area area, uint8_t unit, uint16_t address, uint16_t coun
     for (uint16_t i = 0; i < count; ++i) {
       const size_t k = offset + i;
       const uint8_t mask = uint8_t(1u << (k & 7));
-      if (access.bit(i)) coils_.data[k >> 3] |= mask;
+      if (access.bitAt(i)) coils_.data[k >> 3] |= mask;
       else coils_.data[k >> 3] &= uint8_t(~mask);
     }
   }

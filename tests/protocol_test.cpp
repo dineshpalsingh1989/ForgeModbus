@@ -139,7 +139,7 @@ static uint8_t beforeWrite(const forge::Access& a, void* c) {
   Recorder& r = *static_cast<Recorder*>(c);
   ++r.checks;
   r.last = a;
-  r.lastValue = a.area == Area::Coils ? a.bit(a.count - 1) : a.value(a.count - 1);
+  r.lastValue = a.area == Area::Coils ? a.bitAt(a.count - 1) : a.value(a.count - 1);
   return r.reject;
 }
 static void afterWrite(const forge::Access& a, void* c) {

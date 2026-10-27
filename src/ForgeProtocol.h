@@ -25,7 +25,8 @@ struct Access {
   uint16_t count;    // number of coils/registers
   // Requested values of a write. Not meaningful for reads.
   uint16_t value(uint16_t i) const { return uint16_t(data[2 * i]) << 8 | data[2 * i + 1]; }
-  bool bit(uint16_t i) const { return (data[i >> 3] >> (i & 7)) & 1; }
+  // Named bitAt because Arduino.h defines a bit() macro.
+  bool bitAt(uint16_t i) const { return (data[i >> 3] >> (i & 7)) & 1; }
   const uint8_t* data;
 };
 
