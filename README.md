@@ -189,7 +189,7 @@ interrupt Wi-Fi, test a slow reader, and run a long memory soak.
 
 ## Publishing
 
-An open-source license has not yet been selected. To list the library
+ForgeModbus is released under the MIT License; see `LICENSE`. To list the library
 in the Arduino Library Manager, tag a release and submit the repository URL to
 [arduino/library-registry](https://github.com/arduino/library-registry). PlatformIO
 picks it up from `library.json`.

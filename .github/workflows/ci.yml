@@ -8,7 +8,7 @@ jobs:
   host-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build and run protocol tests
         run: |
           cmake -S . -B build
@@ -16,7 +16,8 @@ jobs:
           ctest --test-dir build --output-on-failure
 
   esp32-compile:
-    runs-on: ubuntu-latest
+    # compile-sketches needs a Python build that Ubuntu 26.04 runners lack.
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +31,7 @@ jobs:
           - fqbn: esp32:esp32:esp32c6
           - fqbn: esp32:esp32:esp32p4
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: arduino/compile-sketches@v1
         with:
           fqbn: ${{ matrix.fqbn }}
