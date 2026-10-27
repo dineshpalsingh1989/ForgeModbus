@@ -1,0 +1,12 @@
+{
+  "name": "ForgeModbus",
+  "version": "0.2.0",
+  "description": "Modbus TCP server for ESP32 over Wi-Fi or Ethernet: functions 1-6, 15 and 16, hooks, read-only ranges, float helpers, flash persistence and IP allowlist.",
+  "keywords": "modbus, modbus-tcp, esp32, industrial, scada, plc",
+  "repository": { "type": "git", "url": "https://github.com/dineshpalsingh1989/ForgeModbus.git" },
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "headers": "ForgeModbus.h",
+  "build": { "srcDir": "src" },
+  "export": { "exclude": [".toolchain", "build", "tests", "tools"] }
+}

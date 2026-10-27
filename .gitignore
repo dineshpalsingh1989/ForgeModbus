@@ -1,0 +1,4 @@
+build/
+.pio/
+__pycache__/
+.toolchain/

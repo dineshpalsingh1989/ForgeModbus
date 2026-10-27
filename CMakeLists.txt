@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(ForgeModbusTests LANGUAGES CXX)
+enable_testing()
+add_executable(protocol_test src/ForgeProtocol.cpp tests/protocol_test.cpp)
+target_include_directories(protocol_test PRIVATE src)
+target_compile_features(protocol_test PRIVATE cxx_std_17)
+# Tests use assert even in release builds.
+if(MSVC)
+  target_compile_options(protocol_test PRIVATE /UNDEBUG /W4)
+else()
+  target_compile_options(protocol_test PRIVATE -UNDEBUG -Wall -Wextra -Wpedantic)
+endif()
+add_test(NAME protocol COMMAND protocol_test)
